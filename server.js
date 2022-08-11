@@ -7,7 +7,11 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/', (req, res)=>{
-    res.sendFile('public/index.html', {root: __dirname})
+    res.sendFile('public/index.html', {root: __dirname}) 
+    // parse incoming string or array data
+app.use(express.urlencoded({ extended: true }));
+// parse incoming JSON data
+app.use(express.json());
 })
 
 app.get('/notes', (req, res) =>{
